@@ -33,9 +33,9 @@ while k != 0:
         if k in {3,4}:
             s = input("\nВведите номера товаров, которые Вы хотели бы уменьшить в кол-ве через пробел:\n\n - ")
             s = s.split()
-            s = [int(i) for i in s] 
+            s = [int(i) for i in s if int(i)>0 and int(i)<len(p) and i.isdigit()]
             n = int(input("\nНа сколько бы вы хотели уменьшить их кол-во?\n\n - "))
-            temp.sort() #обратная сортировка, номер товара совпадает с индексом в списке
+            temp.sort() #обратная сортировка, номер товара совпадает с индексом в списке   
             for i in range(0,len(s)):
                 temp[s[i]-1][3] = str(int(temp[s[i]-1][3]) - n)
                 if  int(temp[s[i]-1][3]) < 0:
@@ -47,21 +47,23 @@ while k != 0:
             for i in range(0,len(p)):
                 print(p[i][0].ljust(3),p[i][1].ljust(20),p[i][2].ljust(6),p[i][3].ljust(3))
             if k == 4:
-                n = int(input('''\n\nКак бы вы хотели сохранить отсортированный список?
+                n = input('''\n\nКак бы вы хотели сохранить отсортированный список?
 1) В тот же файл
 2) В отдельный файл (будет создан в той же папке)
 
- - '''))
-                if n == 1:
+ - ''')
+                if int(n) == 1:
                     with open("products.txt",'w') as prod:
                         for i in range(0,len(p)):
                             prod.write(p[i][0]+';'+p[i][1]+';'+p[i][2]+';'+p[i][3]+'\n')
-                elif n == 2:
+                    print("\nФайл успешно перезаписан!\n")
+                elif int(n) == 2:
                     with open('newlist.txt','w') as prod:
                         for i in range(0,len(p)):
                             prod.write(p[i][0]+';'+p[i][1]+';'+p[i][2]+';'+p[i][3]+'\n')
+                    print("\nФайл newlist.txt успешно создан!\n")
                 else:
-                    print("Некорректный ввод, принудительное завершение без сохранения")
+                    print("\nНекорректный ввод, принудительное завершение без сохранения")
                     k = 0
         q = input("Вы хотите продолжить? (Y, yes, 1 // N, no, 0)\n\n - ")
         if q in {'Y','yes','1'}:
@@ -74,5 +76,3 @@ while k != 0:
     else:
         k = int(input("Введите корректный номер действия:\n\n - "))
 print("\nСпасибо за использование данной программы!")
-             
-        
