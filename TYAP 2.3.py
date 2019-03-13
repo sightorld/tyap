@@ -2,8 +2,8 @@ ugh = "ФИО;Возраст;Категория;_Иванов Иван Иван�
 ugh = ugh.split(';_')
 for i in range(0,len(ugh)):
     ugh[i]=ugh[i].split(';') 
-print('\t' + ugh[0][0] + '\t\t\t' + ugh[0][1] + '\t\t' + ugh[0][2])
+print(ugh[0][0].ljust(30), ugh[0][1].ljust(8), ugh[0][2])
 for i in range(1,len(ugh)): 
     if ugh[i][1] == '21 год':
-        print(ugh[i][0]+ '\t\t' + ugh[i][1] + '\t' +ugh[i][2])
+        print(ugh[i][0].ljust(30), ugh[i][1].ljust(8), ugh[i][2])
 
