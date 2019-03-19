@@ -5,7 +5,7 @@ while i < len(s):
     n = 0
     if s[i] == 'Л' and s[i+1] == 'и':
         for h in s[i:]:
-            if h != ' ':
+            if h not in {' ',',',':','.','!','?',';','(',')'}:
                 n = n + 1
             else:
                 break
