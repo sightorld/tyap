@@ -1,7 +1,7 @@
 s = input("Введите строку: ")
 i = 0
 d = ""
-while i < len(s):
+while i < len(s)-1:
     n = 0
     if s[i] == 'Л' and s[i+1] == 'и':
         for h in s[i:]:
