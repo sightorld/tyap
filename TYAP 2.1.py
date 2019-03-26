@@ -1,9 +1,9 @@
-s = input("Введите строку: ")
-i = 0
+s = ' ' + input("Введите строку: ")
+i = 1
 d = ""
-while i < len(s)-1:
+while i < len(s):
     n = 0
-    if s[i] == 'Л' and s[i+1] == 'и':
+    if s[i] == 'Л' and s[i+1] == 'и' and s[i-1] == ' ':
         for h in s[i:]:
             if h not in {' ',',',':','.','!','?',';','(',')'}:
                 n = n + 1
