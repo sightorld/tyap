@@ -5,7 +5,7 @@ def zad1():
     print("\nВ данной папке",len([name for name in dic if os.path.isfile(name)]),"файлов")
 
 def zad2(p, temp):
-    with open("products.txt") as prod:    
+    with open("products.txt",'r') as prod:    
         for line in prod:
             temp.append(line.rstrip()) #запись каждой строки как элемент списка без \n
         for i in range(0,len(temp)):
